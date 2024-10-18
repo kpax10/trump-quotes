@@ -4,11 +4,11 @@ import requests
 
 
 def get_quote():
-    # url = 'https://api.tronalddump.io/random/quote'
     url = 'https://api.whatdoestrumpthink.com/api/v1/quotes/random/'
     response = requests.get(url)
     data = response.json()
-    print(data)
+    quote = data["message"]
+    canvas.itemconfig(quote_text, text=quote, font=("Arial", 20, "bold"))
 
 
 def resize_image(image, percentage):
