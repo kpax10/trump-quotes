@@ -6,6 +6,7 @@ import requests
 def get_quote():
     url = 'https://api.whatdoestrumpthink.com/api/v1/quotes/random/'
     response = requests.get(url)
+    response.raise_for_status()
     data = response.json()
     quote = data["message"]
     canvas.itemconfig(quote_text, text=quote, font=("Arial", 20, "bold"))
